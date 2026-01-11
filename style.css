@@ -79,6 +79,14 @@ body {
     letter-spacing: -1px;
 }
 
+.logo-img {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 0 15px rgba(112, 0, 255, 0.3);
+}
+
 .logo-text {
     background: var(--chroma-gradient);
     -webkit-background-clip: text;
