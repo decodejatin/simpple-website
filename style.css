@@ -1,12 +1,17 @@
 :root {
-    --bg-color: #050505;
-    --text-color: #e0e0e0;
-    --accent-primary: #00f2fe;
-    --accent-secondary: #7028ff;
-    --glass-bg: rgba(255, 255, 255, 0.05);
-    --glass-border: rgba(255, 255, 255, 0.1);
+    --bg-color: #030303;
+    --text-color: #f0f0f0;
+    --accent-primary: #00ffcc;
+    /* Neon Mint */
+    --accent-secondary: #ff00ff;
+    /* Magenta Pulse */
+    --accent-tertiary: #7000ff;
+    /* Electric Violet */
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
     --font-main: 'Outfit', sans-serif;
     --font-display: 'Space Grotesk', sans-serif;
+    --chroma-gradient: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary), var(--accent-tertiary));
 }
 
 * {
@@ -33,19 +38,20 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(var(--accent-primary), var(--accent-secondary));
+    background: var(--chroma-gradient);
     border-radius: 10px;
 }
 
 .cursor-glow {
     position: fixed;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(0, 242, 254, 0.15) 0%, rgba(112, 40, 255, 0.05) 50%, transparent 70%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(0, 255, 204, 0.1) 0%, rgba(255, 0, 255, 0.05) 40%, transparent 70%);
     border-radius: 50%;
     pointer-events: none;
     z-index: -1;
     transform: translate(-50%, -50%);
+    filter: blur(80px);
 }
 
 /* Navigation */
@@ -58,25 +64,27 @@ body {
     width: 100%;
     top: 0;
     z-index: 1000;
-    background: rgba(5, 5, 5, 0.85);
-    backdrop-filter: blur(20px);
+    background: rgba(3, 3, 3, 0.8);
+    backdrop-filter: blur(25px);
     border-bottom: 1px solid var(--glass-border);
 }
 
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     font-weight: 800;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     font-family: var(--font-display);
+    letter-spacing: -1px;
 }
 
 .logo-text {
-    background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
+    background: var(--chroma-gradient);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 10px rgba(0, 255, 204, 0.3));
 }
 
 .nav-links {
@@ -105,10 +113,10 @@ body {
     gap: 10px;
     font-size: 0.8rem;
     color: var(--accent-primary);
-    background: rgba(0, 242, 254, 0.08);
+    background: rgba(0, 255, 204, 0.08);
     padding: 8px 18px;
     border-radius: 50px;
-    border: 1px solid rgba(0, 242, 254, 0.2);
+    border: 1px solid rgba(0, 255, 204, 0.2);
 }
 
 .status-dot {
@@ -148,6 +156,10 @@ section {
     text-align: center;
     font-weight: 700;
     line-height: 1.1;
+    background: var(--chroma-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* Hero */
@@ -172,18 +184,18 @@ section {
 
 h1 {
     font-family: var(--font-display);
-    font-size: 5rem;
-    line-height: 0.95;
+    font-size: 5.5rem;
+    line-height: 0.9;
     margin-bottom: 2rem;
     font-weight: 800;
-    letter-spacing: -2px;
+    letter-spacing: -3px;
 }
 
 .badge {
     display: inline-block;
     padding: 6px 14px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--glass-border);
+    background: rgba(0, 255, 204, 0.05);
+    border: 1px solid rgba(0, 255, 204, 0.2);
     border-radius: 6px;
     font-size: 0.75rem;
     font-weight: 700;
@@ -191,17 +203,19 @@ h1 {
     letter-spacing: 1.5px;
     margin-bottom: 1.5rem;
     color: var(--accent-primary);
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.1);
 }
 
 .hero p {
-    font-size: 1.3rem;
-    color: #b0b0b0;
-    max-width: 550px;
+    font-size: 1.4rem;
+    color: #a0a0a0;
+    max-width: 600px;
     margin-bottom: 0;
+    line-height: 1.4;
 }
 
 .gradient-text {
-    background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
+    background: var(--chroma-gradient);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -225,14 +239,19 @@ h1 {
 .feature-card:hover {
     border-color: var(--accent-primary);
     transform: translateY(-10px);
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(0, 255, 204, 0.05);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 255, 204, 0.1);
 }
 
 .feature-number {
     font-family: var(--font-display);
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 800;
-    color: rgba(255, 255, 255, 0.03);
+    background: var(--chroma-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.15;
     margin-bottom: 1rem;
 }
 
@@ -258,12 +277,13 @@ h1 {
 .step-visual {
     flex: 1;
     height: 320px;
-    border-radius: 24px;
+    border-radius: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(255, 255, 255, 0.02);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
     border: 1px solid var(--glass-border);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
 }
 
 .step-content {
@@ -272,13 +292,16 @@ h1 {
 
 .step-content h3 {
     font-family: var(--font-display);
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     margin-bottom: 1.2rem;
-    color: var(--accent-primary);
+    background: var(--chroma-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .step-content p {
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     color: #a0a0a0;
 }
 
@@ -286,13 +309,14 @@ h1 {
 .browser-mockup {
     width: 100%;
     max-width: 500px;
-    height: 300px;
-    background: #0a0a0a;
-    border-radius: 12px;
+    height: 320px;
+    background: #050505;
+    border-radius: 16px;
     overflow: hidden;
     border: 1px solid var(--glass-border);
     display: flex;
     flex-direction: column;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
 }
 
 .mockup-header {
